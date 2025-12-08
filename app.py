@@ -74,3 +74,21 @@ class Pet:
 
         if self.__energy < 3:
             print("sleep more")
+
+class dog(Pet):
+    def __init__(self, name, email, subject):
+        super().__init__(name, email)
+        self.subject = subject
+
+class cat(Pet):
+    def __init__(self, name, email, subject):
+        super().__init__(name, email)
+        self.subject = subject
+    
+
+class something(Pet):
+    def __init__(self, name, email, subject):
+        super().__init__(name, email)
+        self.subject = subject
+
+print("pet")
