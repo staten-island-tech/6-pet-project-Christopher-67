@@ -75,20 +75,37 @@ class Pet:
         if self.__energy < 3:
             print("sleep more")
 
-class dog(Pet):
+class Dog(Pet):
     def __init__(self, name, email, subject):
         super().__init__(name, email)
         self.subject = subject
 
-class cat(Pet):
+    def display_info(self):
+        base_info = super().display_info()
+        return f"{base_info}, Subject: {self.subject}
+
+class Cat(Pet):
     def __init__(self, name, email, subject):
         super().__init__(name, email)
         self.subject = subject
     
+    def display_info(self):
+        base_info = super().display_info()
+        return f"{base_info}, Subject: {self.subject}
 
-class something(Pet):
+class Goat(Pet):
     def __init__(self, name, email, subject):
         super().__init__(name, email)
         self.subject = subject
 
-print("pet")
+    def display_info(self):
+        base_info = super().display_info()
+        return f"{base_info}, Subject: {self.subject}
+
+dog = Dog("Alice", "alice@example.com", "S12345")
+cat = Cat("Mr. Smith", "smith@example.com", "Mathematics")
+goat = Goat("Ms. Johnson", "johnson@example.com", "Principal")
+
+print(dog.display_info()) 
+print(cat.display_info())
+print(goat.display_info())
