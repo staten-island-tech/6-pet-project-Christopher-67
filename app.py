@@ -97,15 +97,15 @@ def main():
     print ("Goat")
     pet_chosen = input("pick pet:")
 
-    if pet_chosen == "Dog":
+    if pet_chosen.lower == "Dog":
         pet = Dog(name)
-    if pet_chosen == "Cat":
+    if pet_chosen.lower == "Cat":
         pet = Cat(name)
-    if pet_chosen == "Goat":
+    if pet_chosen.lower == "Goat":
         pet = Goat(name)
     else:
         print("pet does not exist")
-        return
+        return 
     
     while True: 
         pet.show_status()
