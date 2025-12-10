@@ -97,11 +97,11 @@ def main():
     print ("Goat")
     pet_chosen = input("pick pet:")
 
-    if pet_chosen.lower == "Dog":
+    if pet_chosen == "Dog":
         pet = Dog(name)
-    if pet_chosen.lower == "Cat":
+    elif pet_chosen == "Cat":
         pet = Cat(name)
-    if pet_chosen.lower == "Goat":
+    elif pet_chosen == "Goat":
         pet = Goat(name)
     else:
         print("pet does not exist")
@@ -118,11 +118,11 @@ def main():
 
         if action == "Feed":
             pet.feed
-        if action == "Play":
+        elif action == "Play":
             pet.play
-        if action == "Rest":
+        elif action == "Rest":
             pet.rest
-        if action == "Quit":
+        elif action == "Quit":
             break
         else:
             print("it doesnt work")
