@@ -76,36 +76,55 @@ class Pet:
             print("sleep more")
 
 class Dog(Pet):
-    def __init__(self, name, email, subject):
-        super().__init__(name, email)
-        self.subject = subject
-
-    def display_info(self):
-        base_info = super().display_info()
-        return f"{base_info}, Subject: {self.subject}
+    def play(self):
+        super().play()
 
 class Cat(Pet):
-    def __init__(self, name, email, subject):
-        super().__init__(name, email)
-        self.subject = subject
-    
-    def display_info(self):
-        base_info = super().display_info()
-        return f"{base_info}, Subject: {self.subject}
+    def rest(self):
+        super().rest()
 
 class Goat(Pet):
-    def __init__(self, name, email, subject):
-        super().__init__(name, email)
-        self.subject = subject
+    def play(self):
+        super().play()
 
-    def display_info(self):
-        base_info = super().display_info()
-        return f"{base_info}, Subject: {self.subject}
 
-dog = Dog("Alice", "alice@example.com", "S12345")
-cat = Cat("Mr. Smith", "smith@example.com", "Mathematics")
-goat = Goat("Ms. Johnson", "johnson@example.com", "Principal")
+def main():
+    name = input("Type pets name:")
 
-print(dog.display_info()) 
-print(cat.display_info())
-print(goat.display_info())
+    print ("select pet")
+    print ("Dog")
+    print ("Cat")
+    print ("Goat")
+    pet_chosen = input("pick pet:")
+
+    if pet_chosen == "Dog":
+        pet = Dog(name)
+    if pet_chosen == "Cat":
+        pet = Cat(name)
+    if pet_chosen == "Goat":
+        pet = Goat(name)
+    else:
+        print("pet does not exist")
+        return
+    
+    while True: 
+        pet.show_status()
+
+        print("choose activty:")
+        print("Feed")
+        print("Play")
+        print("Rest")
+        action = input("Pick")
+
+        if action == "Feed":
+            pet.feed
+        if action == "Play":
+            pet.play
+        if action == "Rest":
+            pet.rest
+        if action == "Quit":
+            break
+        else:
+            print("it doesnt work")
+
+main()
