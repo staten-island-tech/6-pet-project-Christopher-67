@@ -56,6 +56,26 @@ class Pet:
         else:
             if self.__hunger > 7:
                 print("eat a lot")
+    
+    def play(self):
+        print(f"playing with {self.name}")
+        if self.__happiness < 4:
+            print(self.name, "no longer depressed after playing")
+            self._change_happiness(3)
+        elif self.__happiness < 7:
+            print(self.name, "playing")
+            self._change_hunger(-2)
+            self._change_happiness(3)
+        else:
+            print(self.name, "playing")
+            self._change_hunger(-3)
+            self._change_happiness(4)
+        
+        if self.__happiness > 8:
+            print("too happy")
+        else:
+            if self.__happiness < 2:
+                print("wants to play more")
 
     def rest(self):
         print(f"{self.name} resting")
@@ -74,6 +94,11 @@ class Pet:
 
         if self.__energy < 3:
             print("sleep more")
+    
+    def status(self):
+        print(f"{self.name}'s Happiness: {Pet.get_happiness(self)}")
+        print(f"{self.name}'s Hunger: {Pet.get_hunger(self)}")
+        print(f"{self.name}'s Energy: {Pet.get_energy(self)}")
 
 class Dog(Pet):
     def play(self):
@@ -87,42 +112,46 @@ class Goat(Pet):
     def play(self):
         super().play()
 
-
 def main():
-    name = input("Type pets name:")
+    name = input("Type pets name: ")
 
+    print (" ")
     print ("select pet")
     print ("Dog")
     print ("Cat")
     print ("Goat")
-    pet_chosen = input("pick pet:")
+    pet_chosen = input("Pick pet: ")
 
-    if pet_chosen == "Dog":
+    if pet_chosen.lower() == "dog":
         pet = Dog(name)
-    elif pet_chosen == "Cat":
+    elif pet_chosen.lower() == "cat":
         pet = Cat(name)
-    elif pet_chosen == "Goat":
+    elif pet_chosen.lower() == "goat":
         pet = Goat(name)
     else:
         print("pet does not exist")
         return 
     
     while True: 
-        pet.show_status()
-
+        pet.status()
+        print(" ")
+        
         print("choose activty:")
         print("Feed")
         print("Play")
         print("Rest")
-        action = input("Pick")
+        print("Death")
 
-        if action == "Feed":
-            pet.feed
-        elif action == "Play":
-            pet.play
-        elif action == "Rest":
-            pet.rest
-        elif action == "Quit":
+        action = input("Pick: ")
+
+        if action.lower() == "feed":
+            pet.feed()
+        elif action.lower() == "play":
+            pet.play()
+        elif action.lower() == "rest":
+            pet.rest()
+        elif action.lower() == "death":
+            print("your pet is dead")
             break
         else:
             print("it doesnt work")
